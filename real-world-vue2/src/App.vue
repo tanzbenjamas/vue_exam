@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="{name :'home'}">Home</router-link> |
+      <router-link :to="{name :'Home'}">Home</router-link> |
       <router-link to="/about">About</router-link>
 
       <!-- or <router-link :to="{name :'Home'}">Home</router-link> |
