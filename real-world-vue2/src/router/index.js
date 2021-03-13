@@ -4,6 +4,8 @@ import Home from "../views/Home.vue";
 import EventList from "../components/EventList.vue";
 import EventCreate from "../components/EventCreate.vue"
 import EventShow from "../components/EventShow.vue"
+import User from "../views/User.vue";
+
 
 Vue.use(VueRouter);
 
@@ -37,6 +39,12 @@ const routes = [
     name: "event-show",
     component: EventShow
   },
+  // Dynamic Routes
+  {
+    path: "/user/:username",
+    name: "user",
+    component: User
+  }
   
 ];
 
