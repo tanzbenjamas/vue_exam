@@ -5,7 +5,7 @@ import EventList from "../components/EventList.vue";
 import EventCreate from "../components/EventCreate.vue"
 import EventShow from "../components/EventShow.vue"
 import User from "../views/User.vue";
-
+import EventCard from "../components/EventCard.vue"
 
 Vue.use(VueRouter);
 
@@ -38,6 +38,13 @@ const routes = [
     path: "/event-show/:id",
     name: "event-show",
     component: EventShow,
+    props: true
+
+  },
+  {
+    path: "/event-card",
+    name: "event-card",
+    component: EventCard,
     props: true
 
   },

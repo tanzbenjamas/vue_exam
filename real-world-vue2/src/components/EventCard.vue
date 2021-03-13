@@ -1,22 +1,21 @@
-<template>
+<template >
 <div>
-    <h1 v-if="key" @click="handler(arg, event)"></h1>
-    <ul>
-        <li></li>
-    </ul>
+<h4>{{ title }}</h4>
 </div>
 </template>
 
-<script>
+<script >
 export default {
     data() {
         return {
-            key: true
+            title:'Park Cleanup'
         }
     },
 
 }
 </script>
-<style>
-
+<style scoped>
+h4{
+    color: green;
+}
 </style>
