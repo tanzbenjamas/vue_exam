@@ -1,5 +1,5 @@
 <template>
-  
+  <h1>Create List</h1>
 </template>
 
 <script>
