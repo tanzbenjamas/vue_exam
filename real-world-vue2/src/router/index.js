@@ -35,9 +35,11 @@ const routes = [
     component: EventCreate
   },
   {
-    path: "/event-show",
+    path: "/event-show/:id",
     name: "event-show",
-    component: EventShow
+    component: EventShow,
+    props: true
+
   },
   // Dynamic Routes
   {
