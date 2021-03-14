@@ -1,12 +1,13 @@
 import Vue from "vue";
 import Vuex from "vuex";
+import EventService from '@/services/EventService.js'
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
     user: { id: "abc123", name: "Adam Jahr" },
-    categories: [
+    categories: [ 
       "sustainability",
       "nature",
       "animal welfare",
@@ -30,6 +31,11 @@ export default new Vuex.Store({
      //methods:{this.$store.commit('INCREMNT_COUNT') 
      //ตามด้วยชื่อตัว matations ที่ตั้งไว้ 
    },
+
+   ADD_EVENT(state, event) {
+    state.events.push(event)
+  },
+
 
   //ex
   //  PICK_UP_BREAD(state,bread){
@@ -55,8 +61,14 @@ export default new Vuex.Store({
     if (state.user) {
       commit('INCREMNT_COUNT', incrementBy)
     }
-
   },
+
+  createEvent({ commit }, event) {
+    return EventService.postEvent(event).then(() =>{
+      commit('ADD_EVENT', event)
+    })
+  }
+
 },
   getters:{
     catLength: state =>{
