@@ -20,9 +20,15 @@ export default new Vuex.Store({
       { id: 2, title: '...', organizer: '...'},
       { id: 3, title: '...', organizer: '...'},
       { id: 4, title: '...', organizer: '...'},
-    ]
+    ],
+    count:1
   },
-  mutations: {},
+  mutations: { //can update/mutate Vuex State
+   INCREMNT_COUNT(state){
+     state.count +=1; 
+     //ค่าที่ได้ เอาไปใส่ใน methods:{this.$store.commit('INCREMNT_COUNT') ตามด้วยชื่อตัว matations ที่ตั้งไว้ }
+   }
+  },
   actions: {},
   getters:{
     catLength: state =>{
