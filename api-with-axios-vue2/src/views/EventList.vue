@@ -1,34 +1,32 @@
 <template>
   <div>
-      <h1>EventList</h1>
-      <EventCard v-for="event in events" :key="event.id" :event="event"/>
+    <h1>EventList</h1>
+    <EventCard v-for="event in events" :key="event.id" :event="event" />
   </div>
 </template>
 
 <script>
-import EventCard from '../components/EvenCard';
-import EventService from '../services/EventService';
+import EventCard from "../components/EvenCard";
+import EventService from "../services/EventService";
 export default {
-  components:{
-    EventCard
+  components: {
+    EventCard,
   },
   data() {
     return {
-      events: []
-    }
+      events: [],
+    };
   },
   created() {
-    EventService.getEvents().then(response => {
-      this.events = response.data;
-    })
-    .catch(error => {
-      console.log("There was an error:",error.response);
-    })
+    EventService.getEvents()
+      .then((response) => {
+        this.events = response.data;
+      })
+      .catch((error) => {
+        console.log("There was an error:", error.response);
+      });
   },
-
-}
+};
 </script>
 
-<style>
-
-</style>
+<style></style>
