@@ -30,7 +30,22 @@
       "location": "Meow Town",
       "date": "2019-01-03T21:54:00.000Z",
       "time": "2:00",
-      "attendees": []
+      "attendees": [{
+        "id": "abc123",
+        "name": "Adam Jahr"
+      },
+      {
+        "id": "def456",
+        "name": "Gregg Pollack"
+      },
+      {
+        "id": "ghi789",
+        "name": "Beth Swanson"
+      },
+      {
+        "id": "jkl101",
+        "name": "Mary Gordon"
+      }]
     },
     {
       "id": 8419988,
@@ -60,6 +75,62 @@
       "location": "Puptown ",
       "date": "2019-02-02T23:27:00.000Z",
       "time": "1:00",
+      "attendees": []
+    },
+    {
+      "id": 3803966,
+      "category": "nature",
+      "organizer": {
+        "id": "abc123",
+        "name": "Adam Jahr"
+      },
+      "title": "Working",
+      "description": "",
+      "location": "",
+      "date": "",
+      "time": "",
+      "attendees": []
+    },
+    {
+      "id": 5243711,
+      "category": "nature",
+      "organizer": {
+        "id": "abc123",
+        "name": "Adam Jahr"
+      },
+      "title": "hh",
+      "description": "hh",
+      "location": "hh",
+      "date": "2021-03-01T09:46:00.000Z",
+      "time": "2:00",
+      "attendees": []
+    },
+    {
+      "id": 4913447,
+      "category": "animal welfare",
+      "organizer": {
+        "id": "abc123",
+        "name": "Adam Jahr"
+      },
+      "title": "sfd",
+      "description": "df",
+      "location": "xdf",
+      "date": "2021-03-01T11:12:00.000Z",
+      "time": "20:00",
+      "attendees": []
+    },
+    {
+      "id": 5235857,
+      "category": "housing",
+      "organizer": {
+        "id": "abc123",
+        "name": "Adam Jahr"
+      },
+      "title": "df",
+      "description": "dfcsdz",
+      "location": "fdsf",
+      "date": "2021-03-04T11:13:00.000Z",
+      "time": "21:00",
       "attendees": []
     }
   ]

@@ -16,13 +16,9 @@ export default new Vuex.Store({
       "food",
       "community",
     ],
-    events:[
-      { id: 1, title: '...', organizer: '...'},
-      { id: 2, title: '...', organizer: '...'},
-      { id: 3, title: '...', organizer: '...'},
-      { id: 4, title: '...', organizer: '...'},
-    ],
-    count:0
+    events:[],
+    count:0,
+    event:{}
   },
   mutations: { //can update/mutate Vuex State
    INCREMNT_COUNT(state,value){
@@ -35,6 +31,13 @@ export default new Vuex.Store({
    ADD_EVENT(state, event) {
     state.events.push(event)
   },
+
+  SET_EVENTS(state, events) {
+    state.events = events
+  },
+  SET_EVENT(state, event) {
+    state.event = event
+  }
 
 
   //ex
@@ -67,7 +70,34 @@ export default new Vuex.Store({
     return EventService.postEvent(event).then(() =>{
       commit('ADD_EVENT', event)
     })
+  },
+  fetchEvents({ commit },{ perPage, page}) {
+    EventService.getEvents(perPage, page)
+      .then(response => {
+        console.log('Total events are ', response.headers['x-total-count'])
+        commit('SET_EVENTS', response.data)
+      })
+      .catch(error => {
+        console.log('There was an error:', error.response)
+      })
+  },
+
+  fetchEvent({ commit,getters }, id) {
+    var event = getters.getEventById(id)
+    if(event){
+      commit('SET_EVENT', event)
+    } else{
+      EventService.getEvent(id)
+      .then(response => {
+        commit('SET_EVENT', response.data)
+      })
+      .catch(error => {
+        console.log('There was an error:', error.response)
+      })
+    }
+ 
   }
+
 
 },
   getters:{
