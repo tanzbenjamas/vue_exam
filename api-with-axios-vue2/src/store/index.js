@@ -21,15 +21,43 @@ export default new Vuex.Store({
       { id: 3, title: '...', organizer: '...'},
       { id: 4, title: '...', organizer: '...'},
     ],
-    count:1
+    count:0
   },
   mutations: { //can update/mutate Vuex State
-   INCREMNT_COUNT(state){
-     state.count +=1; 
-     //ค่าที่ได้ เอาไปใส่ใน methods:{this.$store.commit('INCREMNT_COUNT') ตามด้วยชื่อตัว matations ที่ตั้งไว้ }
-   }
+   INCREMNT_COUNT(state,value){
+     state.count +=value; 
+     //ค่าที่ได้ เอาไปใส่ใน 
+     //methods:{this.$store.commit('INCREMNT_COUNT') 
+     //ตามด้วยชื่อตัว matations ที่ตั้งไว้ 
+   },
+
+  //ex
+  //  PICK_UP_BREAD(state,bread){
+  //   state.bread = bread;
+  // }
+
   },
-  actions: {},
+  actions: { 
+  // Mutation are synchonous Actions are asynchronons
+  // Synchronous: A B C D E
+  // Asynhronous: A C E D B
+  // Actions can wrap business logic around Mutations
+  //ex
+
+  // pleasePickUpBread({commit}){
+  //     if(possible){
+  //       fetch('/bread').then(bread => {
+  //         commit('PICK_UP_BREAD',bread)
+  //       })
+  //     }
+  // },
+  updateCount({ state, commit }, incrementBy) {
+    if (state.user) {
+      commit('INCREMNT_COUNT', incrementBy)
+    }
+
+  },
+},
   getters:{
     catLength: state =>{
       return state.categories.length

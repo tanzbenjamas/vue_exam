@@ -5,7 +5,12 @@
       <p>There are {{ catLength }} categories </p>
       <p>getEvent {{ getEvent(1) }} </p>
       <p>getEvent {{ getEventById(2) }} </p>
-
+      
+      <p> mutations </p>
+      <div>
+        <input type="number" v-model.number="incrememtBy">
+        <button @click="incrementCount"> Incrememt </button>
+      </div>
 
       <ul>
         <li v-for="cat in categories" :key="cat">
@@ -18,6 +23,21 @@
 <script>
 import { mapState,mapGetters } from 'vuex'
 export default {
+  data() {
+    return {
+      incrememtBy: 1
+    }
+  },
+  methods: { 
+    // incrementCount(){  mutations เฉยๆ
+    //   return this.$store.commit('INCREMNT_COUNT',this.incrememtBy)
+    // }
+
+      incrementCount(){  //actions
+      return this.$store.dispatch('updateCount',this.incrememtBy)
+    }
+
+  },
 
     computed: {
      catLength(){
