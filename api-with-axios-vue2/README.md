@@ -19,6 +19,13 @@ yarn build
 ```
 yarn lint
 ```
+### Project run
+```
+npm install -g json-server
+json-server --watch db.json
+
+```
+
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).

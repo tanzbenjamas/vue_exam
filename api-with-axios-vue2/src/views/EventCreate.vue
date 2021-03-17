@@ -130,7 +130,10 @@ export default {
      },
     // ...mapGetters(['getEventById']),
     // ...mapState([  'user','categories'])
-  }
+  },
+  mounted() {
+    
+  },
     // computed:{ //คล้ายๆ oncheck angular
   //   userName(){
   //     return this.$store.state.user.name

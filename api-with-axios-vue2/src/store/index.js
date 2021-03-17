@@ -97,8 +97,6 @@ export default new Vuex.Store({
     }
  
   }
-
-
 },
   getters:{
     catLength: state =>{
