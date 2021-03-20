@@ -27,10 +27,10 @@
 
 <script>
 
-import { mapState } from 'vuex'
+import { mapState ,mapActions} from 'vuex'
 
 export default {
-  props: ['id'],
+  props: ['id'], //การ Props ก็เหมือนการเอาค่าจากข้างนอกมาเพื่อที่จะให้แสดงใน Component ของเรานั้นเอง
   created() {
     // EventService.getEvent(this.id)
     //   .then((response) => {
@@ -39,9 +39,10 @@ export default {
     //   .catch((error) => {
     //     console.log("There was an error:", error.response);
     //   });
-        this.$store.dispatch('fetchEvent', this.id)
+        this.fetchEvent(this.id)
   },
-  computed: mapState(['event'])
+  computed:mapState({event: state => state.event.event,}),
+  methods: mapActions('event',['fetchEvent'])
 };
 </script>
 <style scoped>
