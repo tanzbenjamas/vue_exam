@@ -26,6 +26,7 @@ json-server --watch db.json
 
 Next-vue 
 npm install nprogress
+json-server -d 1500 db.json 
 ```
 
 
