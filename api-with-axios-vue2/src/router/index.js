@@ -5,6 +5,8 @@ import EventCard from '../components/EvenCard.vue';
 import EventCreate from '../views/EventCreate.vue';
 import EventShow from '../views/EventShow.vue';
 import EventList from '../views/EventList.vue'
+import NProgress from 'nprogress'
+
 
 Vue.use(VueRouter);
 
@@ -38,15 +40,6 @@ const routes = [
     props: true
 
   },
-  {
-    path: "/about",
-    name: "About",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/About.vue")
-  }
 ];
 
 const router = new VueRouter({
@@ -54,5 +47,16 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 });
+
+//Start the progress bar when routing begins
+router.beforeEach((routeTo,routeFrom,next) =>{
+  NProgress.start()
+  next()
+})
+
+//Finish the progress bar when routing is about
+router.afterEach(() => {
+  NProgress.done()
+})
 
 export default router;
