@@ -24,6 +24,8 @@ yarn lint
 npm install -g json-server
 json-server --watch db.json
 
+Next-vue 
+npm install nprogress
 ```
 
 
