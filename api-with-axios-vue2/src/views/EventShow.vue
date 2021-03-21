@@ -27,18 +27,24 @@
 
 <script>
 
-import { mapState } from 'vuex'
-import NProgress from 'nprogress'
-import store from '../store/index';
+// import { mapState } from 'vuex'
+// import NProgress from 'nprogress'
+// import store from '../store/index';
 export default {
-  props: ['id'], //การ Props ก็เหมือนการเอาค่าจากข้างนอกมาเพื่อที่จะให้แสดงใน Component ของเรานั้นเอง
-  beforeRouteEnter (routeTo, routeFrom, next) {
-    NProgress.start()
-    store.dispatch('event/fetchEvent',routeTo.params.id).then(() =>{
-          NProgress.done()
-          next()
-    })
-  },
+  props:{
+    event: {
+      type:Object,
+      required:true
+    }
+  }
+  // props: ['id'], //การ Props ก็เหมือนการเอาค่าจากข้างนอกมาเพื่อที่จะให้แสดงใน Component ของเรานั้นเอง
+  // beforeRouteEnter (routeTo, routeFrom, next) {
+  //   NProgress.start()
+  //   store.dispatch('event/fetchEvent',routeTo.params.id).then(() =>{
+  //         NProgress.done()
+  //         next()
+  //   })
+  // },
   // created() {
     // EventService.getEvent(this.id)
     //   .then((response) => {
@@ -49,7 +55,7 @@ export default {
     //   });
         // this.fetchEvent(this.id)
   // },
-  computed:mapState({event: state => state.event.event,}),
+  // computed:mapState({event: state => state.event.event,}),
   // methods: mapActions('event',['fetchEvent'])
 };
 </script>
